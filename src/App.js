@@ -29,18 +29,19 @@ const App = () => {
   return (
     <div>
       <header className="header">
-        <h1>Cyberonic SEOs</h1>
+        <h1>Cyberonic SEOS</h1>
+        <nav className="navbar">
+          <ul>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#signin">Sign In</a></li>
+            <li><a href="#signup">Sign Up</a></li>
+          </ul>
+        </nav>
       </header>
-      <nav className="navbar">
-        <ul>
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#signin">Sign In</a></li>
-          <li><a href="#signup">Sign Up</a></li>
-        </ul>
-      </nav>
+
       <div className="container">
         <div className="cards">
           {programs.map((program, index) => (
@@ -48,7 +49,7 @@ const App = () => {
               <img src={program.imageUrl} alt={program.title} />
               <h2>{program.title}</h2>
               <p>{program.description}</p>
-              <button>Browse</button>
+              <button>View Course Details</button>
             </div>
           ))}
         </div>
