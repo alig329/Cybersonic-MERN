@@ -180,3 +180,64 @@
     font-size: 0.9rem;
   }
 }
+
+/* Sign Up and Sign In Styles */
+form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 1rem auto;
+  max-width: 400px; /* Limit the form width */
+  display: flex;
+  flex-direction: column; /* Stack the inputs vertically */
+}
+
+label {
+  margin: 0.5rem 0; /* Spacing between labels and inputs */
+  font-weight: bold; /* Make labels stand out */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%; /* Ensure all inputs take the full width */
+  padding: 0.75rem;
+  border: 1px solid #ccc; /* Light border for inputs */
+  border-radius: 4px; /* Rounded corners for inputs */
+  margin-bottom: 1rem; /* Space between inputs */
+  font-size: 1rem; /* Base font size for inputs */
+  transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+button {
+  background-color: #007bff; /* Primary color for buttons */
+  color: white; /* Text color for buttons */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners for buttons */
+  padding: 0.75rem; /* Padding for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size for buttons */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+@media (max-width: 768px) {
+  form {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Reduce font size for smaller screens */
+  }
+}
