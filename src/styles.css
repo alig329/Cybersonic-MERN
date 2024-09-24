@@ -241,3 +241,38 @@ button:hover {
     font-size: 1.5rem; /* Reduce font size for smaller screens */
   }
 }
+
+
+/* Add to your styles.css */
+.ceo-message {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0; /* Spacing above and below the message */
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Update this in your styles.css */
+.ceo-image-placeholder {
+  width: 150px; /* Width for the image */
+  height: 150px; /* Height for the image */
+  background-color: #ccc; /* Placeholder color */
+  border-radius: 50%; /* Circular shape */
+  margin-right: 1rem; /* Space between image and text */
+  overflow: hidden; /* Hide any overflow */
+  display: flex; /* Flex container for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.ceo-image {
+  width: 100%; /* Make image fill the placeholder */
+  height: 100%; /* Ensure image fits height */
+  object-fit: cover; /* Ensure image covers the area */
+}
+
+
+.ceo-text {
+  flex: 1; /* Take the remaining space */
+}

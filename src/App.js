@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './styles.css'; 
 import SignIn from './SignIn'; 
 import SignUp from './SignUp'; 
+import CEOsMessage from './CEOsMessage';
 
 const programs = [
   {
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={
             <div className="container">
+              <CEOsMessage/>
               <div className="cards">
                 {programs.map((program, index) => (
                   <div className="card" key={index}>
