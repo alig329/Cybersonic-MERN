@@ -1,5 +1,5 @@
 /* Common styles for both header and navbar */
-/* Ensure the header spans full width and adjusts the navbar container */
+/* The header spans full width and adjusts the navbar container */
 .header {
   display: flex;
   flex-direction: row;
@@ -8,44 +8,44 @@
   background-color: #333;
   color: white;
   padding: 1rem;
-  width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Include padding and border in width calculations */
+  width: 100%; /* Ensuring full width */
+  box-sizing: border-box; /* Included padding and border in width calculations */
 }
 
-/* Adjust the navbar to use full available width */
+/* Adjusted the navbar to use full available width */
 .navbar {
-  background-color: #333; /* Match header background color */
+  background-color: #333; /* Matched header background color */
   padding: 0.5rem;
   margin: 0;
-  flex: 1; /* Allow navbar to take up available space */
+  flex: 1; /* Allowed navbar to take up available space */
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
+  justify-content: flex-end; /* Aligned items to the right */
 }
 
-/* Ensure the navbar ul takes up the full width */
+/* The navbar ul takes up the full width */
 .navbar ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-wrap: nowrap; /* Prevent wrapping */
-  gap: 1rem; /* Adjust the gap between items */
-  align-items: center; /* Center items vertically */
-  width: auto; /* Remove width constraints */
-  box-sizing: border-box; /* Include padding and border in width calculations */
+  gap: 1rem; /* Adjusted the gap between items */
+  align-items: center; /* Centered items vertically */
+  width: auto; /* Removed width constraints */
+  box-sizing: border-box; /* Included padding and border in width calculations */
 }
 
 .navbar ul li {
-  margin: 0; /* Remove margin to avoid gaps */
+  margin: 0; /* Removed margin to avoid gaps */
 }
 
 .navbar ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  padding: 0.5rem 1rem; /* Add padding for better clickability */
-  display: block; /* Ensure the link takes up the full space */
-  border-radius: 4px; /* Optional: Add a small border radius for visual appeal */
+  padding: 0.5rem 1rem; /* Added padding for better clickability */
+  display: block; /* The link takes up the full space */
+  border-radius: 4px; /* a small border radius for visual appeal */
 }
 
 .navbar ul li a:hover {
@@ -54,23 +54,25 @@
 }
 
 /* Responsive styles for Navbar */
-@media (max-width: 768px) {
+
+@media (max-width: 650px) {
   .navbar {
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
+    align-items: center; /* Centered items horizontally */
   }
 
   .navbar ul {
     flex-direction: column;
-    gap: 0.5rem; /* Adjust the gap between items for smaller screens */
-    width: 100%; /* Ensure ul spans full width */
-    align-items: center; /* Center items */
-  }
-
-  .navbar ul li a {
-    padding: 0.5rem 1rem; /* Maintain padding for readability */
+    gap: 0.5rem; /* Adjusted the gap between items for smaller screens */
+    width: 100%; /*  ul spans full width */
+    align-items: center; /* Centered items */
   }
 }
+
+  .navbar ul li a {
+    padding: 0.5rem 1rem; /* Maintained padding for readability */
+  }
+
 
 @media (max-width: 480px) {
   .header h1 {
@@ -78,7 +80,7 @@
   }
 
   .navbar ul li a {
-    padding: 0.5rem; /* Adjust padding for smaller screens */
+    padding: 0.5rem; /* Adjusted padding for smaller screens */
   }
 
   .footer {
@@ -96,19 +98,35 @@
   margin-bottom: 4rem; /* Space for footer */
 }
 
+/* Cards display */
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two cards per row by default */
+  grid-template-columns: 1fr; /* for one card per row */
   gap: 1rem;
   width: 100%;
-  max-width: 1200px; /* Limit the width for better layout */
+  max-width: 1200px; /* Limited the width for better layout */
 }
+
+/* Two cards per row for XXL and XL screens */
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* One card per row for MD and smaller screens */
+@media (max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr; /* Single card per row */
+  }
+}
+
 
 .card {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem; /* Adjust padding for responsiveness */
+  padding: 1rem; /* Adjusted padding for responsiveness */
   text-align: center;
   transition: transform 0.2s ease;
   display: flex;
@@ -120,7 +138,7 @@
 .card img {
   width: 100%;
   height: 200px; /* Fixed height for images */
-  object-fit: cover; /* Ensure image covers the container */
+  object-fit: cover; /* Ensuring the image covers the container */
   border-radius: 8px;
 }
 
@@ -173,7 +191,7 @@
   }
 
   .navbar ul li a {
-    padding: 0.5rem; /* Adjust padding for smaller screens */
+    padding: 0.5rem; /* Adjusted padding for smaller screens */
   }
 
   .footer {
@@ -188,20 +206,20 @@ form {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   margin: 1rem auto;
-  max-width: 400px; /* Limit the form width */
+  max-width: 400px; /* Limited the form width */
   display: flex;
   flex-direction: column; /* Stack the inputs vertically */
 }
 
 label {
   margin: 0.5rem 0; /* Spacing between labels and inputs */
-  font-weight: bold; /* Make labels stand out */
+  font-weight: bold; /* Makde labels stand out */
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 100%; /* Ensure all inputs take the full width */
+  width: 100%; /* Ensureing all inputs take the full width */
   padding: 0.75rem;
   border: 1px solid #ccc; /* Light border for inputs */
   border-radius: 4px; /* Rounded corners for inputs */
@@ -213,14 +231,14 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove default outline */
+  border-color: #007bff; /* Changes border color on focus */
+  outline: none; /* Removeed default outline */
 }
 
 button {
   background-color: #007bff; /* Primary color for buttons */
   color: white; /* Text color for buttons */
-  border: none; /* Remove default border */
+  border: none; /* Removed default border */
   border-radius: 4px; /* Rounded corners for buttons */
   padding: 0.75rem; /* Padding for buttons */
   cursor: pointer; /* Pointer cursor on hover */
@@ -229,21 +247,21 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #0056b3; /* for Darker shade on hover */
 }
 
 @media (max-width: 768px) {
   form {
-    padding: 1rem; /* Adjust padding for smaller screens */
+    padding: 1rem; /* Adjustedd padding for smaller screens */
   }
 
   h2 {
-    font-size: 1.5rem; /* Reduce font size for smaller screens */
+    font-size: 1.5rem; /* Reducing font size for smaller screens */
   }
 }
 
 
-/* Add to your styles.css */
+
 .ceo-message {
   display: flex;
   align-items: center;
@@ -253,26 +271,26 @@ button:hover {
   border-radius: 8px;
 }
 
-/* Update this in your styles.css */
+
 .ceo-image-placeholder {
   width: 150px; /* Width for the image */
   height: 150px; /* Height for the image */
   background-color: #ccc; /* Placeholder color */
   border-radius: 50%; /* Circular shape */
   margin-right: 1rem; /* Space between image and text */
-  overflow: hidden; /* Hide any overflow */
+  overflow: hidden; /* to Hide any overflow */
   display: flex; /* Flex container for centering */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  align-items: center; /* to Center vertically */
+  justify-content: center; /* to Center horizontally */
 }
 
 .ceo-image {
-  width: 100%; /* Make image fill the placeholder */
-  height: 100%; /* Ensure image fits height */
-  object-fit: cover; /* Ensure image covers the area */
+  width: 100%; /* Madde image fill the placeholder */
+  height: 100%; /* Ensuriing image fits height */
+  object-fit: cover; /* Ensurijng image covers the area */
 }
 
 
 .ceo-text {
-  flex: 1; /* Take the remaining space */
+  flex: 1; /* to Take the remaining space */
 }

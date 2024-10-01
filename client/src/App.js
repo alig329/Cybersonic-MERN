@@ -1,9 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles.css'; 
 import SignIn from './SignIn'; 
 import SignUp from './SignUp'; 
-import CEOsMessage from './CEOsMessage';
+import Services from './Services';
+import About from './About';
+import Navbar from './navbar';
+import Footer from './footer';
+
 
 const programs = [
   {
@@ -32,23 +36,16 @@ const App = () => {
   return (
     <Router>
       <div>
-        <header className="header">
-          <h1>Cyberonic SEOS</h1>
-          <nav className="navbar">
-            <ul>
-              <li><Link to="/">Courses</Link></li>
-              <li><Link to="/signin">Sign In</Link></li>
-              <li><Link to="/signup">Sign Up</Link></li>
-            </ul>
-          </nav>
-        </header>
+        <Navbar/>
 
         <Routes>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About/>} />
           <Route path="/" element={
             <div className="container">
-              <CEOsMessage/>
+              
               <div className="cards">
                 {programs.map((program, index) => (
                   <div className="card" key={index}>
@@ -63,9 +60,7 @@ const App = () => {
           } />
         </Routes>
 
-        <footer className="footer">
-          <p>&copy; 2024 Cyberonic SEOS. All rights reserved.</p>
-        </footer>
+        <Footer/>
       </div>
     </Router>
   );
