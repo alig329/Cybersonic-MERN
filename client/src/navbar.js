@@ -1,87 +1,42 @@
-// Navbar.js
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import './styles.css'; 
 
 const Navbar = () => {
+  const menuItems = [
+    { text: 'Courses', to: '/' },
+    { text: 'Services', to: '/services' },
+    { text: 'Careers', to: '/careers' },
+    { text: 'About', to: '/about' },
+    { text: 'Sign In', to: '/signin' },
+    { text: 'Sign Up', to: '/signup' },
+  ];
+
   return (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Cyberonic SEOS
         </Typography>
-        <Button
-          color="inherit"
-          component={Link}
-          to="/"
-          sx={{
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            },
-          }}
-        >
-          Courses
-        </Button>
-        <Button
-          color="inherit"
-          component={Link}
-          to="/services"
-          sx={{
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            },
-          }}
-        >
-          Services
-        </Button>
-        <Button
-          color="inherit"
-          component={Link}
-          to="/careers"
-          sx={{
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            },
-          }}
-        >
-          Careers
-        </Button>
-        <Button
-          color="inherit"
-          component={Link}
-          to="/about"
-          sx={{
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            },
-          }}
-        >
-          About
-        </Button>
-        <Button
-          color="inherit"
-          component={Link}
-          to="/signin"
-          sx={{
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            },
-          }}
-        >
-          Sign In
-        </Button>
-        <Button
-          color="inherit"
-          component={Link}
-          to="/signup"
-          sx={{
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            },
-          }}
-        >
-          Sign Up
-        </Button>
+        {/* Buttons for all screens */}
+        <div className="navbar-buttons">
+          {menuItems.map((item) => (
+            <Button
+              key={item.text}
+              color="inherit"
+              component={Link}
+              to={item.to}
+              sx={{
+                '&:hover': {
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                },
+              }}
+            >
+              {item.text}
+            </Button>
+          ))}
+        </div>
       </Toolbar>
     </AppBar>
   );

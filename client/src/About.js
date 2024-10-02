@@ -1,5 +1,7 @@
 import React from 'react';
 import CEOsMessage from './CEOsMessage';
+import './styles.css'; 
+
 
 const About = () => {
   return (

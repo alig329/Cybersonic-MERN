@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './styles.css'; 
+
 
 const ApplyForm = ({ course }) => {
   const [formData, setFormData] = useState({

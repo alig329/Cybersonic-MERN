@@ -1,19 +1,21 @@
 import React from 'react';
+import './styles.css';
+
 import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material';
 import { Facebook, Instagram, Email, Phone } from '@mui/icons-material';
 
 const Footer = () => {
   return (
-    <AppBar position="static" sx={{ top: 'auto', bottom: 0, backgroundColor: '#333' }}>
+    <AppBar position="static" className="footer">
       <Toolbar>
-        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="body1" sx={{ color: 'white' }}>
+        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Typography variant="body1" sx={{ color: 'white', marginBottom: 1 }}>
             &copy; 2024 Cyberonic SEOS. All rights reserved.
           </Typography>
-          <Box>
+          <Box className="social-icons">  
             <IconButton
-              color="inherit"
-              href="https://www.facebook.com/people/Cyberonic-SEOS-Pakistan/61565780717486" // you people can replace with yours Facebook URL
+              className="icon-button" // icon-button class
+              href="https://www.facebook.com/people/Cyberonic-SEOS-Pakistan/61565780717486" // your Facebook URL
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -21,8 +23,8 @@ const Footer = () => {
               <Facebook />
             </IconButton>
             <IconButton
-              color="inherit"
-              href="https://www.instagram.com/cybronicseospakistan" // you people can replace with your Instagram URL
+              className="icon-button" //* Use the icon-button class 
+              href="https://www.instagram.com/cybronicseospakistan" // our Instagram URL
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -30,15 +32,15 @@ const Footer = () => {
               <Instagram />
             </IconButton>
             <IconButton
-              color="inherit"
-              href="mailto:info@cyberonicseos.com" // you people can replace with your email
+              className="icon-button" //* icon-button class 
+              href="mailto:info@cyberonicseos.com" // our email
               aria-label="Email"
             >
               <Email />
             </IconButton>
             <IconButton
-              color="inherit"
-              href="tel:+923334080016" // yhou people can replace with your phone number
+              className="icon-button" //  icon-button class 
+              href="tel:+923334080016" // our phone number
               aria-label="Phone"
             >
               <Phone />

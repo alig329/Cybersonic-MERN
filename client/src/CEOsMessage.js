@@ -1,6 +1,6 @@
 // CEOsMessage.js
 import React from 'react';
-import './styles.css'; // Ensure your styles are consistent
+import './styles.css'; 
 
 const CEOsMessage = () => {
   return (
