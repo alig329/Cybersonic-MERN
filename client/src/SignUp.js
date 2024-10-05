@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './styles.css'; 
-
+import './styles.css';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
@@ -14,31 +13,54 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Change the URL to point to your backend server running on port 5000
       const response = await axios.post('http://localhost:5000/api/auth/signup', formData);
       alert('Signup successful', response.data);
-      // Redirect user or perform further actions
     } catch (error) {
       console.error('Error signing up:', error.response ? error.response.data : error.message);
       alert('Signup failed');
     }
   };
-  
 
   return (
-    <div>
-      <h2>Sign Up</h2>
+    <div className="form-container">
+      
       <form onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        <div className="form-group">
 
-        <label>Email:</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-
-        <label>Password:</label>
-        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-
-        <button type="submit">Sign Up</button>
+        <h2>Sign Up</h2>
+          <label>Name:</label>
+          <input 
+            type="text" 
+            name="name" 
+            value={formData.name} 
+            onChange={handleChange} 
+            className="form-input" 
+            required 
+          />
+        </div>
+        <div className="form-group">
+          <label>Email:</label>
+          <input 
+            type="email" 
+            name="email" 
+            value={formData.email} 
+            onChange={handleChange} 
+            className="form-input" 
+            required 
+          />
+        </div>
+        <div className="form-group">
+          <label>Password:</label>
+          <input 
+            type="password" 
+            name="password" 
+            value={formData.password} 
+            onChange={handleChange} 
+            className="form-input" 
+            required 
+          />
+        </div>
+        <button type="submit" className="form-button">Sign Up</button>
       </form>
     </div>
   );

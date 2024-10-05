@@ -1,4 +1,5 @@
-import React from 'react';
+// App.js
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles.css'; 
 import SignIn from './SignIn'; 
@@ -7,18 +8,19 @@ import Services from './Services';
 import About from './About';
 import Navbar from './navbar';
 import Footer from './footer';
-
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const programs = [
   {
-    title: 'Computer Programming',
-    description: 'Learn the fundamentals of computer programming and various programming languages.',
+    title: 'Full-Stack Web Development',
+    description: 'Master Full-Stack web development using different programming languages and frameworks.',
     imageUrl: '/compro.jpg'
   },
   {
-    title: 'Web Development',
-    description: 'Master front-end and back-end web development skills.',
-    imageUrl: '/webdev.jpg'
+    title: 'IELTS/Spoken English',
+    description: 'Enhance your communication skills for IELTS and spoken English proficiency.',
+    imageUrl: '/ielts.jpg'
   },
   {
     title: 'Networking',
@@ -26,33 +28,100 @@ const programs = [
     imageUrl: '/network.jpg'
   },
   {
-    title: 'Software Engineering',
-    description: 'Explore software design, development methodologies, and project management.',
+    title: 'Cybersecurity',
+    description: 'Learn Cybersecurity to safeguard systems, networks, and data against digital attacks and unauthorized access.',
     imageUrl: '/softeng.jpg'
   }
 ];
 
+const cards = [
+  {
+    title: 'Computer Programming',
+    description: 'Learn the fundamentals of computer programming and various programming languages.',
+    imageUrl: '/compro.jpg'
+},
+{
+  title: 'SEO and Digital Marketing',
+    description: 'Learn effective strategies for SEO and digital marketing to boost online visibility.',
+    imageUrl: '/seo.jpg'
+},
+{
+  title: 'Graphic Designing and Video Editing',
+    description: 'Create stunning visuals and captivating videos using industry-standard tools and techniques.',
+    imageUrl: '/graphic.jpg'
+},
+{
+  title: 'Amazone VA',
+    description: 'Learn essential skills to efficiently manage Amazon accounts and optimize sales performance.',
+    imageUrl: '/va.jpg'
+},
+{
+  title: 'Python Web Developer', 
+    description: 'Gain expertise in building dynamic web applications using Python and related frameworks.',
+    imageUrl: '/python.jpg'
+},
+  
+  {
+    title: 'Cybersecurity',
+    description: 'Learn Cybersecurity to safeguard systems, networks, and data against digital attacks and unauthorized access.',
+    imageUrl: '/softeng.jpg'
+  }
+]
+
 const App = () => {
+  const [autoPlay, setAutoPlay] = useState(true); // State to manage autoplay
+
+
   return (
     <Router>
       <div>
-        <Navbar/>
+        <Navbar />
 
         <Routes>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About/>} />
+          <Route path="/about" element={<About />} />
           <Route path="/" element={
             <div className="container">
-              
-              <div className="cards">
+              {/* Carousel wrapper */}
+              <Carousel
+                showThumbs={false} // Hide the small thumbnails below the carousel
+                showStatus={false} // Hide the slide number status
+                infiniteLoop
+                autoPlay={autoPlay} // Control autoplay based on state
+                interval={3000} // 3 seconds delay between slides
+                stopOnHover={false} // Prevent carousel from stopping on hover
+              >
                 {programs.map((program, index) => (
-                  <div className="card" key={index}>
-                    <img src={program.imageUrl} alt={program.title} />
-                    <h2>{program.title}</h2>
-                    <p>{program.description}</p>
-                    <button>View Course Details</button>
+  <div key={index} className="carousel-slide">
+    <img src={program.imageUrl} alt={program.title} className="carousel-image" />
+    <div className="carousel-content">
+      <h2>{program.title}</h2>
+      <p>{program.description}</p>
+      <button 
+        onMouseEnter={() => setAutoPlay(false)} 
+        onMouseLeave={() => setAutoPlay(true)} 
+      >
+        View Details
+      </button> {/* Stop autoplay when hovered and resume when unhovered */}
+    </div>
+  </div>
+))}
+
+              </Carousel>
+
+              {/* Grid of Cards below the carousel */}
+              <h2>Our Courses</h2>
+              <div className="course-grid">
+                {cards.map((card, index) => (
+                  <div className="course-card" key={index}>
+                    <img src={card.imageUrl} alt={card.title} className="course-image" />
+                    <div className="course-content">
+                      <h3>{card.title}</h3>
+                      <p>{card.description}</p>
+                      <button>View Course Details</button>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -60,7 +129,7 @@ const App = () => {
           } />
         </Routes>
 
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   );

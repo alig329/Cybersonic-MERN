@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './styles.css'; 
-
+import './styles.css';
 
 const SignIn = () => {
   const handleSubmit = async (e) => {
@@ -12,7 +11,6 @@ const SignIn = () => {
     try {
       await axios.post('http://localhost:5000/api/auth/signin', { email, password });
       alert('Sign in successful');
-      // Redirect user or store token
     } catch (error) {
       console.error('Error signing in:', error);
       alert('Sign in failed');
@@ -20,18 +18,19 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <h2>Sign In</h2>
+    <div className="form-container">
+      
       <form onSubmit={handleSubmit}>
-        <div>
+      <h2>Sign In</h2>
+        <div className="form-group">
           <label>Email:</label>
-          <input type="email" name="email" required />
+          <input type="email" name="email" className="form-input" required />
         </div>
-        <div>
+        <div className="form-group">
           <label>Password:</label>
-          <input type="password" name="password" required />
+          <input type="password" name="password" className="form-input" required />
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit" className="form-button">Sign In</button>
       </form>
     </div>
   );

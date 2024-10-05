@@ -16,6 +16,12 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
+
+      <img
+          src="/logo 192.png" // Accessing the logo from the public folder
+          alt="Company Logo"
+          style={{ width: '40px', height: '40px', marginRight: '10px' }}
+        />
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Cyberonic SEOS
         </Typography>
