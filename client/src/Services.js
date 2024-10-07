@@ -1,7 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';  // Import Link
 import './styles.css'; 
-
-// import { Link } from 'react-router-dom';
 
 const servicesData = {
   business: [
@@ -15,19 +14,14 @@ const servicesData = {
       { title: 'Front-end Web Development',
         description: 'Learn to design responsive websites.',
         imageUrl: '/wpdev.jpg' }
-      // Added onsite courses
     ],
     onsite: [
-      
-
       { title: 'Full Stack Web Development (MERN)',
         description: 'Learn to build full-stack applications using the MERN stack.',
-       imageUrl: '/dev.jpg'
-      },
+        imageUrl: '/dev.jpg' },
       { title: 'Full Stack Web Development (Wordpress)',
         description: 'Master WordPress for building dynamic websites.',
         imageUrl: '/fontweb.jpg' }
-      // Added online courses
     ],
   }
 };
@@ -51,7 +45,7 @@ const Services = () => {
             <img src={course.imageUrl} alt={course.title} />
             <h4>{course.title}</h4>
             <p>{course.description}</p>
-            <button onClick={() => applyCourse(course.title)}>Apply</button>
+            <Link to={`/apply/${course.title}`} className="btn btn-primary">Apply</Link>
           </div>
         ))}
       </div>
@@ -63,16 +57,12 @@ const Services = () => {
             <img src={course.imageUrl} alt={course.title} />
             <h4>{course.title}</h4>
             <p>{course.description}</p>
-            <button onClick={() => applyCourse(course.title)}>Apply</button>
+            <Link to={`/apply/${course.title}`} className="btn btn-primary">Apply</Link>
           </div>
         ))}
       </div>
     </div>
   );
-};
-
-const applyCourse = (courseTitle) => {
-  alert(`Applying for ${courseTitle}`);
 };
 
 export default Services;

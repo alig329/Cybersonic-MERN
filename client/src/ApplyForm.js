@@ -1,52 +1,88 @@
 import React, { useState } from 'react';
 import './styles.css'; 
 
-
 const ApplyForm = ({ course }) => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    contact: '',
-    paymentPlan: 'installments',
+    name: '',
+    phone: '',
+    degree: 'Matric',
+    courseApplyingFor: course || 'Full Stack Web Development',
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Application submitted:', formData);
-    alert(`Application Submitted for ${course}!`);
-    // Reset form
-    setFormData({ username: '', email: '', contact: '', paymentPlan: 'installments' });
+    console.log(formData);
+    alert('Form submitted successfully!');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Apply for {course}</h3>
-      <label>
-        Name:
-        <input type="text" name="username" value={formData.username} onChange={handleChange} required />
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      </label>
-      <label>
-        Contact:
-        <input type="text" name="contact" value={formData.contact} onChange={handleChange} required />
-      </label>
-      <label>
-        Payment Plan:
-        <select name="paymentPlan" value={formData.paymentPlan} onChange={handleChange}>
-          <option value="installments">Installments</option>
-          <option value="lump-sum">Lump Sum</option>
-        </select>
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <div className="container mt-5 border border-primary p-4">
+      <h2>Apply for {course}</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Name:</label>
+          <input
+            type="text"
+            name="name"
+            className="form-control"
+            placeholder="Enter your name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Phone Number:</label>
+          <input
+            type="tel"
+            name="phone"
+            className="form-control"
+            placeholder="Enter your phone number"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Recent Degree:</label>
+          <select
+            name="degree"
+            className="form-control"
+            value={formData.degree}
+            onChange={handleChange}
+            required
+          >
+            <option value="Matric">Matric</option>
+            <option value="FSC">FSC</option>
+            <option value="BSc">BSc</option>
+            <option value="B.S">B.S</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label>Course Applying For:</label>
+          <select
+            name="courseApplyingFor"
+            className="form-control"
+            value={formData.courseApplyingFor}
+            onChange={handleChange}
+            required
+          >
+            <option value="Full Stack Web Development">Full Stack Web Development</option>
+            <option value="Python Development">Python Development</option>
+            <option value="Amazon VA">Amazon VA</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+          </select>
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </form>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 // App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './styles.css'; 
 import SignIn from './SignIn'; 
 import SignUp from './SignUp'; 
@@ -8,6 +8,7 @@ import Services from './Services';
 import About from './About';
 import Navbar from './navbar';
 import Footer from './footer';
+import ApplyForm from './ApplyForm';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -82,6 +83,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
+          <Route path="/apply/:course" element={<ApplyForm />} />
           <Route path="/" element={
             <div className="container">
               {/* Carousel wrapper */}
@@ -103,13 +105,13 @@ const App = () => {
         onMouseEnter={() => setAutoPlay(false)} 
         onMouseLeave={() => setAutoPlay(true)} 
       >
-        View Details
+        <Link to={`/apply/${program.title}`} className="btn btn-primary">Apply</Link>
       </button> {/* Stop autoplay when hovered and resume when unhovered */}
     </div>
   </div>
 ))}
 
-              </Carousel>
+</Carousel>
 
               {/* Grid of Cards below the carousel */}
               <h2>Our Courses</h2>
@@ -120,7 +122,7 @@ const App = () => {
                     <div className="course-content">
                       <h3>{card.title}</h3>
                       <p>{card.description}</p>
-                      <button>View Course Details</button>
+                      <button><Link to={`/apply/${card.title}`} className="btn btn-primary">Apply</Link></button>
                     </div>
                   </div>
                 ))}
