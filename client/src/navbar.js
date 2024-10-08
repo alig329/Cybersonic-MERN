@@ -5,8 +5,8 @@ import './styles.css';
 
 const Navbar = () => {
   const menuItems = [
-    { text: 'Courses', to: '/' },
-    { text: 'Services', to: '/services' },
+    { text: 'Home', to: '/' },
+    { text: 'Courses', to: '/services' },
     { text: 'Careers', to: '/careers' },
     { text: 'About', to: '/about' },
     { text: 'Sign In', to: '/signin' },

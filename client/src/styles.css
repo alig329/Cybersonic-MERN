@@ -286,49 +286,84 @@
 
 
 /* Sign Up and Sign In Styles */
+/* Container for Sign Up and Sign In Forms */
+.container {
+  max-width: 600px; /* Limiting the width of the container */
+  margin: auto; /* Center the container */
+  padding: 20px; /* Add padding to the container */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #fff; /* Background color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-sizing: border-box; /* Include padding and border in width calculations */
+}
+
+/* Adjust the form */
 form {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin: 1rem auto;
-  max-width: 400px; /* Limit the form width */
+  padding: 2rem; /* Adjust padding as needed */
+  margin: 2rem auto; /* Center the form */
+  width: 100%; /* Ensure form takes full width of container */
+  max-width: 100px; /* Keep the max width to prevent overflow */
   display: flex;
   flex-direction: column; /* Stack the inputs vertically */
 }
 
+
+h2 {
+  text-align: center; /* Center the heading */
+  color: #007bff; /* Primary color for heading */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Spacing between form groups */
+}
+
 label {
-  margin: 0.5rem 0; /* Spacing between labels and inputs */
-  font-weight: bold; /* Make labels stand out */
+  display: block; /* Labels should be block elements */
+  margin-bottom: 5px; /* Spacing below labels */
+  font-weight: bold; /* Bold labels */
 }
 
 input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%; /* Ensure inputs take full width */
-  padding: 0.75rem;
-  border: 1px solid #ccc; /* Light border for inputs */
+input[type="tel"],
+select {
+  width: 100%; /* Full width for inputs */
+  padding: 10px; /* Padding inside inputs */
+  border: 1px solid #ccc; /* Border color */
   border-radius: 4px; /* Rounded corners for inputs */
-  margin-bottom: 1rem; /* Space between inputs */
-  font-size: 1rem; /* Base font size for inputs */
-  transition: border-color 0.3s; /* Smooth border color transition */
+  box-sizing: border-box; /* Include padding in width */
 }
 
 input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  border-color: #007bff; /* Change border color on focus */
+input[type="tel"]:focus,
+select:focus {
+  border-color: #007bff; /* Highlight border on focus */
   outline: none; /* Remove default outline */
 }
 
+.btn {
+  /* background-color: #007bff; Button color */
+  /* color: white; Text color for buttons */
+  /* border: none; Remove border */
+  /* padding: 10px 15px; Button padding */
+  /* border-radius: 4px; Rounded corners for buttons */
+  cursor: pointer; /* Pointer on hover */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
 button {
-  background-color: #007bff; /* Primary color for buttons */
-  color: white; /* Text color for buttons */
-  border: none; /* Remove default border */
-  border-radius: 4px; /* Rounded corners for buttons */
-  padding: 0.75rem; /* Padding for buttons */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 1rem; /* Font size for buttons */
+   background-color: #007bff; /* Primary color for buttons */
+   color: white; /* Text color for buttons */
+   border: none; /* Remove default border */
+   border-radius: 4px; /* Rounded corners for buttons */
+   padding: 0.75rem; /* Padding for buttons */
+   cursor: pointer; /* Pointer cursor on hover */
+   font-size: 1rem; /* Font size for buttons */
   transition: background-color 0.3s; /* Smooth background transition */
 }
 
@@ -566,10 +601,10 @@ form {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 2.5rem;
+  padding: 1rem;
   margin: 1rem auto;
   width: 100%;
-  max-width: 400px; /* Max form width */
+  max-width: 300px; /* Max form width */
   display: flex;
   flex-direction: column; /* Stack inputs vertically */
   text-align: center;
@@ -588,8 +623,8 @@ form label {
   margin-bottom: 0.5rem;
   color: #555555;
   text-align: left;
-  font-size: 1rem;
-  font-weight: 500;
+  /* font-size: 1rem; */
+  /* font-weight: 500; */
 }
 
 /* Input Fields */
@@ -597,11 +632,11 @@ form input[type="text"],
 form input[type="email"],
 form input[type="password"] {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
+  /* padding: 5px; */
+  margin: 1rem;
   border: 1px solid #dddddd;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 5px;
   background-color: #f9f9f9;
   transition: border-color 0.3s ease;
 }
@@ -649,11 +684,11 @@ form a:hover {
 /* Media Query for Mobile Responsiveness */
 @media (max-width: 600px) {
   form {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   form h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   form button {

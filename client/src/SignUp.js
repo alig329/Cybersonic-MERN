@@ -1,68 +1,21 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './styles.css';
+import React from 'react';
+import { Button, TextField, Paper, Typography, Container } from '@mui/material';
 
 const SignUp = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', formData);
-      alert('Signup successful', response.data);
-    } catch (error) {
-      console.error('Error signing up:', error.response ? error.response.data : error.message);
-      alert('Signup failed');
-    }
-  };
-
   return (
-    <div className="form-container">
-      
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-
-        <h2>Sign Up</h2>
-          <label>Name:</label>
-          <input 
-            type="text" 
-            name="name" 
-            value={formData.name} 
-            onChange={handleChange} 
-            className="form-input" 
-            required 
-          />
-        </div>
-        <div className="form-group">
-          <label>Email:</label>
-          <input 
-            type="email" 
-            name="email" 
-            value={formData.email} 
-            onChange={handleChange} 
-            className="form-input" 
-            required 
-          />
-        </div>
-        <div className="form-group">
-          <label>Password:</label>
-          <input 
-            type="password" 
-            name="password" 
-            value={formData.password} 
-            onChange={handleChange} 
-            className="form-input" 
-            required 
-          />
-        </div>
-        <button type="submit" className="form-button">Sign Up</button>
+    <Container component={Paper} elevation={3} style={{ padding: '20px', maxWidth: '400px', marginTop: '50px' }}>
+      <Typography variant="h4" color="primary" align="center" gutterBottom>
+        Sign Up
+      </Typography>
+      <form noValidate autoComplete="off">
+        <TextField fullWidth label="Name" variant="outlined" margin="normal" required />
+        <TextField fullWidth label="Email" variant="outlined" margin="normal" required />
+        <TextField fullWidth label="Password" variant="outlined" margin="normal" type="password" required />
+        <Button variant="contained" color="primary" fullWidth style={{ marginTop: '20px' }}>
+          Sign Up
+        </Button>
       </form>
-    </div>
+    </Container>
   );
 };
 

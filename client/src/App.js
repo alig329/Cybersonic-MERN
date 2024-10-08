@@ -37,8 +37,8 @@ const programs = [
 
 const cards = [
   {
-    title: 'Computer Programming',
-    description: 'Learn the fundamentals of computer programming and various programming languages.',
+    title: 'Full-Stack Web development',
+    description: 'Master Full-Stack web development using different programming languages and frameworks.',
     imageUrl: '/compro.jpg'
 },
 {

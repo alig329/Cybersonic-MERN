@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';  // Import Link
+import { Link } from 'react-router-dom';  
 import './styles.css'; 
 
 const servicesData = {
@@ -13,15 +13,15 @@ const servicesData = {
     online: [
       { title: 'Front-end Web Development',
         description: 'Learn to design responsive websites.',
-        imageUrl: '/wpdev.jpg' }
+        imageUrl: '/frontweb.jpg' }
     ],
     onsite: [
       { title: 'Full Stack Web Development (MERN)',
         description: 'Learn to build full-stack applications using the MERN stack.',
-        imageUrl: '/dev.jpg' },
+        imageUrl: '/mern.jpg' },
       { title: 'Full Stack Web Development (Wordpress)',
         description: 'Master WordPress for building dynamic websites.',
-        imageUrl: '/fontweb.jpg' }
+        imageUrl: '/wpdev.jpg' }
     ],
   }
 };
