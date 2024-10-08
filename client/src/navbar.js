@@ -18,7 +18,7 @@ const Navbar = () => {
       <Toolbar>
 
       <img
-          src="/logo 192.png" // Accessing the logo from the public folder
+          src="/logo 192.png" 
           alt="Company Logo"
           style={{ width: '40px', height: '40px', marginRight: '10px' }}
         />

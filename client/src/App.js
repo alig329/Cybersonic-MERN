@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './styles.css'; 
@@ -88,12 +87,12 @@ const App = () => {
             <div className="container">
               {/* Carousel wrapper */}
               <Carousel
-                showThumbs={false} // Hide the small thumbnails below the carousel
-                showStatus={false} // Hide the slide number status
+                showThumbs={false} // hided the small thumbnails below the carousel
+                showStatus={false} // hided the slide number status
                 infiniteLoop
-                autoPlay={autoPlay} // Control autoplay based on state
+                autoPlay={autoPlay} // Controls autoplay based on state
                 interval={3000} // 3 seconds delay between slides
-                stopOnHover={false} // Prevent carousel from stopping on hover
+                stopOnHover={false} // Prevents carousel from stopping on hover
               >
                 {programs.map((program, index) => (
   <div key={index} className="carousel-slide">
@@ -106,7 +105,7 @@ const App = () => {
         onMouseLeave={() => setAutoPlay(true)} 
       >
         <Link to={`/apply/${program.title}`} className="btn btn-primary">Apply</Link>
-      </button> {/* Stop autoplay when hovered and resume when unhovered */}
+      </button> {/* Stops autoplay when hovered and resume when unhovered */}
     </div>
   </div>
 ))}
