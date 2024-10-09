@@ -16,8 +16,7 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-
-      <img
+        <img
           src="/logo 192.png" 
           alt="Company Logo"
           style={{ width: '40px', height: '40px', marginRight: '10px' }}
@@ -25,7 +24,10 @@ const Navbar = () => {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Cyberonic SEOS
         </Typography>
-        {/* Buttons for all screens */}
+        {/* Add the heading for testing */}
+        <Typography variant="subtitle1" style={{ display: 'none' }}>
+          navbar
+        </Typography>
         <div className="navbar-buttons">
           {menuItems.map((item) => (
             <Button
