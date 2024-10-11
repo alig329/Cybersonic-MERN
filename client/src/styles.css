@@ -299,23 +299,6 @@
 }
 
 /* Adjust the form */
-form {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem; /* Adjust padding as needed */
-  margin: 2rem auto; /* Center the form */
-  width: 100%; /* Ensure form takes full width of container */
-  max-width: 100px; /* Keep the max width to prevent overflow */
-  display: flex;
-  flex-direction: column; /* Stack the inputs vertically */
-}
-
-
-h2 {
-  text-align: center; /* Center the heading */
-  color: #007bff; /* Primary color for heading */
-}
 
 .form-group {
   margin-bottom: 15px; /* Spacing between form groups */
@@ -561,6 +544,7 @@ button:hover {
   font-size: 2rem;
   margin-bottom: 10px;
   z-index: 2;
+  color: #ffffff;
 }
 
 /* Style the description */
