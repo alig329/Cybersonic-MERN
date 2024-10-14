@@ -11,8 +11,13 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://www.cyberonicseos.com', // Allow requests from your React frontend
+  origin: 'https://www.cyberonicseos.com', // URL of my project's frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // to allowed HTTP methods
+  credentials: true, // to allowed cookies or other credentials
+  allowedHeaders: ['Content-Type', 'Authorization'] // allow specific headers
 }));
+
+app.options('*', cors()); // to enable pre-flight requests for all routes
 
 app.use(bodyParser.json()); // To parse incoming request bodies
 
