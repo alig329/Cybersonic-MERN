@@ -19,7 +19,7 @@ const SignIn = () => {
     e.preventDefault(); // Prevents default form submission
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signin', {
+      const response = await fetch('https://cybersonic-mern-f9uneood7-muhammad-alis-projects-36eef05f.vercel.app/api/auth/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const SignIn = () => {
         console.error('Error signing in:', data.message);
       }
     } catch (error) {
-      alert('An error occurred. Please try again.');
+      alert('Backend error occurred. Please try again.');
       console.error('Error:', error);
     }
   };

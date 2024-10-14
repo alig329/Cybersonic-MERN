@@ -60,7 +60,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signup', {
+      const response = await fetch('https://cybersonic-mern-f9uneood7-muhammad-alis-projects-36eef05f.vercel.app/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const SignUp = () => {
         alert(data.message || 'Error registering user');
       }
     } catch (error) {
-      alert('An error occurred. Please try again.');
+      alert('Backend error occurred. Please try again.');
       console.error('Error:', error);
     }
   };

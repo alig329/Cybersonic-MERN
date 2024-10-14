@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', // Allow requests from your React frontend
+  origin: 'https://www.cyberonicseos.com', // Allow requests from your React frontend
 }));
 
 app.use(bodyParser.json()); // To parse incoming request bodies
