@@ -7,25 +7,21 @@ const jwt = require('jsonwebtoken');
 // Signup Route
 router.post('/signup', async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    let user = await User.findOne({ email });
-    if (user) {
-      return res.status(400).json({ msg: 'User already exists' });
-    }
-
-    user = new User({
-      name,
-      email,
-      password,
+    // Hardcode user for testing
+    const newUser = new User({
+      name: 'Test User',
+      email: 'testuser@example.com',
+      password: 'testpassword', // Ensure this is hashed in your model
     });
 
-    await user.save();
-    res.json({ msg: 'User registered successfully' });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+    await newUser.save();
+    res.status(201).json({ message: 'User registered successfully!' });
+  } catch (error) {
+    console.error('Error during sign-up:', error);
+    res.status(500).json({ message: 'An error occurred, please try again.' });
   }
 });
+
 
 // Sign-in route
 router.post('/signin', async (req, res) => {
