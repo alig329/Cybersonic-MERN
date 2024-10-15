@@ -51,6 +51,9 @@ const SignUp = () => {
     return valid;
   };
 
+
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents default form submission
 
@@ -60,7 +63,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch('https://www.cyberonicseos.com/api/auth/signup', {
+      const response = await fetch(`${apiUrl}/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
