@@ -10,12 +10,7 @@ dotenv.config(); // Load .env file
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: 'https://www.cyberonicseos.com', // URL of my project's frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // to allowed HTTP methods
-  credentials: true, // to allowed cookies or other credentials
-  allowedHeaders: ['Content-Type', 'Authorization'] // allow specific headers
-}));
+app.use(cors()); // I am currently allowing all origins
 
 app.options('*', cors()); // to enable pre-flight requests for all routes
 

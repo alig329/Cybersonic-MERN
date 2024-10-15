@@ -60,7 +60,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch('https://cybersonic-mern-f9uneood7-muhammad-alis-projects-36eef05f.vercel.app/api/auth/signup', {
+      const response = await fetch('https://www.cyberonicseos.com/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
