@@ -16,7 +16,7 @@ app.options('*', cors()); // to enable pre-flight requests for all routes
 
 app.use(bodyParser.json()); // To parse incoming request bodies
 
-// MongoDB Connection
+// picking MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
