@@ -52,7 +52,7 @@ const SignUp = () => {
   };
 
 
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = process.env.REACT_APP_API_URL; // applying api_url from .env file
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents default form submission
