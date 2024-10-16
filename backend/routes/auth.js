@@ -7,13 +7,13 @@ const jwt = require('jsonwebtoken');
 // Signup Route
 router.post('/signup', async (req, res) => {
   try {
-    // Hardcode user for testing
+    const { name, email, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
-      name: 'Test User',
-      email: 'testuser@example.com',
-      password: 'testpassword', // Ensure this is hashed in your model
+      name,
+      email,
+      password: hashedPassword,
     });
-
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully!' });
   } catch (error) {
@@ -22,33 +22,35 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-
-// Sign-in route
+// Sign-in Route
 router.post('/signin', async (req, res) => {
   const { email, password } = req.body;
-
   try {
-    // Check if the user exists
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ message: 'User not found' });
     }
-
-    // Check if the password is correct
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
-
-    // Create and send a JWT token (optional)
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
     res.json({ token, user });
   } catch (error) {
-    console.error(error);
+    console.error('Error during sign-in:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
+// Get Users Route - For testing purposes
+router.get('/signup', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    res.status(500).json({ message: 'An error occurred, please try again.' });
+  }
+});
 
 module.exports = router;
