@@ -104,7 +104,7 @@ To set up and run this application locally, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/Cybersonic-MERN.git
+    git clone https://github.com/alig329/Cybersonic-MERN.git
     cd Cybersonic-MERN
     ```
 
