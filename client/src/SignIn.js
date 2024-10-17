@@ -33,12 +33,12 @@ const SignIn = () => {
 
       
       if (response.status === 200) {
-        console.log('User signed in successfully:', data);
+        console.log('User signed in successfully:', response.data);
         alert('User signed in successfully!');
         navigate('/services'); //  '/services' navigating the user to my "services" route
       } else {
-        alert(data.message || 'Error signing in');
-        console.error('Error signing in:', data.message);
+        alert(response.data.message || 'Error signing in');
+        console.error('Error signing in:', response.data.message);
       }
     } catch (error) {
       alert('Backend error occurred. Please try again.');
