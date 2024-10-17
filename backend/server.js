@@ -10,9 +10,12 @@ dotenv.config(); // Load .env file
 const app = express();
 
 // Middleware
-app.use(cors()); // I am currently allowing all origins
+const corsOptions = {
+  origin: 'https://www.cyberonicseos.com', // allow your frontend origin
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
-app.options('*', cors()); // to enable pre-flight requests for all routes
 
 app.use(bodyParser.json()); // To parse incoming request bodies
 

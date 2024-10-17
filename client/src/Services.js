@@ -45,7 +45,7 @@ const Services = () => {
             <img src={course.imageUrl} alt={course.title} />
             <h4>{course.title}</h4>
             <p>{course.description}</p>
-            <Link to={`/apply/${course.title}`} className="btn btn-primary">Apply</Link>
+            <Link to={`/apply/${course.title}`} className="btn">Apply</Link>
           </div>
         ))}
       </div>

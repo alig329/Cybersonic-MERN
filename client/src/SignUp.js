@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextField, Paper, Typography, Container, FormHelperText } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -63,20 +64,19 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch(`${apiUrl}/auth/signup`, {
-        method: 'POST',
+      const response = await axios.post(`${apiUrl}/api/auth/signup`, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData), // it wll send form data as JSON
+  
       });
 
-      const data = await response.json();
-      if (response.ok) {
+      
+      if (response.status === 200) {
         alert('User registered successfully!');
         navigate('/signin');
       } else {
-        alert(data.message || 'Error registering user');
+        alert(response.data.message || 'Error registering user');
       }
     } catch (error) {
       alert('Backend error occurred. Please try again.');

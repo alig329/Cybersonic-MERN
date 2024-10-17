@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextField, Paper, Typography, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; 
+import axios from 'axios';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -15,20 +16,23 @@ const SignIn = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+
+  const apiUrl = process.env.REACT_APP_API_URL; // applying api_url from .env file
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents default form submission
 
     try {
-      const response = await fetch('https://cybersonic-mern-f9uneood7-muhammad-alis-projects-36eef05f.vercel.app/api/auth/signin', {
-        method: 'POST',
+      const response = await axios.post(`${apiUrl}/api/auth/signup`, {
+       
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData), // to send form data as JSON
+        
       });
 
-      const data = await response.json();
-      if (response.ok) {
+      
+      if (response.status === 200) {
         console.log('User signed in successfully:', data);
         alert('User signed in successfully!');
         navigate('/services'); //  '/services' navigating the user to my "services" route
