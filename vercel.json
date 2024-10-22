@@ -1,8 +1,14 @@
 {
-    "build": {
-      "env": {
-        "NODE_VERSION": "16"
-      }
+  "build": {
+    "env": {
+      "NODE_VERSION": "16"
     }
-  }
-  
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "methods": ["POST", "GET"],
+      "dest": "/api/index.js"
+    }
+  ]
+}
