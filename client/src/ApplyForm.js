@@ -60,9 +60,14 @@ const ApplyForm = ({ course }) => {
             required
           >
             <option value="Matric">Matric</option>
-            <option value="FSC">FSC</option>
-            <option value="BSc">BSc</option>
-            <option value="B.S">B.S</option>
+            <option value="Intermediate">FSC</option>
+            <option value="Graduation">BSc</option>
+            <option value="Masters">B.S</option>
+            <option value="M.Phil">B.S</option>
+            <option value="Ph.D">B.S</option>
+
+
+
           </select>
         </div>
         <div className="form-group">
@@ -74,7 +79,7 @@ const ApplyForm = ({ course }) => {
             onChange={handleChange}
             required
           >
-            <option value="Full Stack Web Development">Full Stack Web Development</option>
+            <option value="Full Stack Development">Full Stack Web Development</option>
             <option value="Python Development">Python Development</option>
             <option value="Amazon VA">Amazon VA</option>
             <option value="Cybersecurity">Cybersecurity</option>

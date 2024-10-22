@@ -3,6 +3,7 @@ import { Button, TextField, Paper, Typography, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 
+
 const SignIn = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -23,7 +24,7 @@ const SignIn = () => {
     e.preventDefault(); // Prevents default form submission
 
     try {
-      const response = await axios.post(`${apiUrl}/api/auth/signup`, {
+      const response = await axios.post(`${apiUrl}/api/auth/signin`, {
        
         headers: {
           'Content-Type': 'application/json',

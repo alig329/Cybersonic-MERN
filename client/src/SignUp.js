@@ -38,7 +38,7 @@ const SignUp = () => {
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.(com)$/; // Email must end with .com
     if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address ending with .com.';
+      newErrors.email = 'Please enter a valid email address ending with .com';
       valid = false;
     }
 
