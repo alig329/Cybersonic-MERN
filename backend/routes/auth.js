@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 router.post('/auth/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    console.log('Received data:', req.body);
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
       name,

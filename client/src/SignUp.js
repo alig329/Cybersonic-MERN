@@ -63,7 +63,9 @@ const SignUp = () => {
       return; // Stops submission if form is invalid
     }
 
+    console.log('Submitting form data:', formData);
     try {
+      console.log(`${apiUrl}/api/auth/signup`);
       const response = await axios.post(`${apiUrl}/api/auth/signup`, formData, {
         headers: {
           'Content-Type': 'application/json',
