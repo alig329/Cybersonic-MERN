@@ -16,6 +16,7 @@ router.post('/auth/signup', async (req, res) => {
       password: hashedPassword,
     });
     await newUser.save();
+    console.log('User successfully created:', newUser);
     res.status(201).json({ message: 'User registered successfully!' });
   } catch (error) {
     console.error('Error during sign-up:', error);

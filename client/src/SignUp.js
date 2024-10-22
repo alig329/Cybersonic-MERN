@@ -66,7 +66,7 @@ const SignUp = () => {
     console.log('Submitting form data:', formData);
     try {
       console.log(`${apiUrl}/api/auth/signup`);
-      const response = await axios.post(`${apiUrl}/api/auth/signup`, formData, {
+      const response = await axios.post(`${apiUrl}/auth/signup`, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -74,7 +74,7 @@ const SignUp = () => {
       });
 
       
-      if (response.status === 200) {
+      if (response.status === 201) {
         alert('User registered successfully!');
         navigate('/signin');
       } else {
@@ -82,7 +82,7 @@ const SignUp = () => {
       }
     } catch (error) {
       alert('Backend error occurred. Please try again.');
-      console.error('Error:', error);
+      console.error('Error during signUp', error);
     }
   };
 
