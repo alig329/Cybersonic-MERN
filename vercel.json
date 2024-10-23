@@ -1,13 +1,20 @@
 {
   "build": {
     "env": {
-      "NODE_VERSION": "16"
+      "NODE_VERSION": "16",
+      "MONGO_URI": "@mongo_uri", 
+      "JWT_SECRET": "@jwt_secret"
+    }
+  },
+  "functions": {
+    "api/auth/signup": {
+      "runtime": "nodejs16.x"
     }
   },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/server.js"
+      "dest": "/api/$1"
     }
   ]
 }

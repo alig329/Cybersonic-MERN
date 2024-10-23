@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 // Signup Route
-router.post('/auth/signup', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body;
     console.log('Received data:', req.body);

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); // cross origin resource sharing
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 dotenv.config(); // Load .env file
@@ -10,11 +10,16 @@ const app = express();
 
 // Middleware
 const corsOptions = {
-  origin: ['https://www.cyberonicseos.com', 'http://localhost:3000'], // allow your frontend origin
-  optionsSuccessStatus: 200,
+  origin: ['https://www.cyberonicseos.com', 'http://localhost:3000'], // 2 becauseof local and production domains
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // this allows common HTTP methods
+  credentials: true, // for cookies or authentication mechanisms
+  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 };
+
 app.use(cors(corsOptions));
-app.use(bodyParser.json()); // To parse incoming request bodies
+app.options('*', cors(corsOptions));
+
+app.use(express.json()); // To parse incoming request bodies
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
