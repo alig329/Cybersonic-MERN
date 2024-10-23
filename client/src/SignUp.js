@@ -101,8 +101,8 @@ const SignUp = () => {
           name="name" // name attribute
           value={formData.name}
           onChange={handleChange}
-          error={!!errors.name} // Show error state
-          helperText={errors.name} // Display error message
+          error={!!errors.name} // Shows error state
+          helperText={errors.name} // Displays error message
         />
         <TextField
           fullWidth
