@@ -60,7 +60,7 @@ const SignUp = () => {
 
     // Validate form
     if (!validateForm()) {
-      return; // Stops submission if form is invalid
+      return; // Stops submission if form is invalidd
     }
 
     console.log('Submitting form data:', formData);
