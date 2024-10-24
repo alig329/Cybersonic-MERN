@@ -1,14 +1,14 @@
 {
   "build": {
     "env": {
-      "NODE_VERSION": "16",
+      "NODE_VERSION": "20",
       "MONGO_URI": "@mongo_uri", 
       "JWT_SECRET": "@jwt_secret"
     }
   },
   "functions": {
     "api/auth/signup": {
-      "runtime": "nodejs16.x"
+      "runtime": "nodejs20.x"
     }
   },
   "routes": [
