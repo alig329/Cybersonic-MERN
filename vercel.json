@@ -7,7 +7,7 @@
     }
   },
   "functions": {
-    "api/auth/signup": {
+    "api/auth/*": {
       "runtime": "nodejs20.x"
     }
   },
