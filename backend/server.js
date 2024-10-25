@@ -13,7 +13,7 @@ const corsOptions = {
   origin: ['https://www.cyberonicseos.com'], 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // this allows common HTTP methods
   credentials: true, // for cookies or authentication mechanisms
-  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
 };
 
 app.use(cors(corsOptions));

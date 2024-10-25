@@ -1,14 +1,7 @@
 {
   "build": {
     "env": {
-      "NODE_VERSION": "20",
-      "MONGO_URI": "@mongo_uri", 
-      "JWT_SECRET": "@jwt_secret"
-    }
-  },
-  "functions": {
-    "api/auth/*": {
-      "runtime": "nodejs20.x"
+      "NODE_VERSION": "20"
     }
   },
   "routes": [
