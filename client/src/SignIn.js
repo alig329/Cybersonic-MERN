@@ -24,7 +24,7 @@ const SignIn = () => {
     e.preventDefault(); // Prevents default form submission
 
     try {
-      const response = await axios.post(`${apiUrl}/api/auth/signin`, {
+      const response = await axios.post(`${apiUrl}/auth/signin`, {
        
         headers: {
           'Content-Type': 'application/json',
