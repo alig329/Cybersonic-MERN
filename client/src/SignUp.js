@@ -60,12 +60,12 @@ const SignUp = () => {
 
     // Validate form
     if (!validateForm()) {
-      return; // Stops submission if form is invalid
+      return; // Stops submission if form is invalidd
     }
 
     console.log('Submitting form data:', formData);
     try {
-      console.log(`${apiUrl}/api/auth/signup`);
+      console.log(`${apiUrl}/auth/signup`);
       const response = await axios.post(`${apiUrl}/auth/signup`, formData, {
         headers: {
           'Content-Type': 'application/json',
@@ -101,8 +101,8 @@ const SignUp = () => {
           name="name" // name attribute
           value={formData.name}
           onChange={handleChange}
-          error={!!errors.name} // Show error state
-          helperText={errors.name} // Display error message
+          error={!!errors.name} // Shows error state
+          helperText={errors.name} // Displays error message
         />
         <TextField
           fullWidth
