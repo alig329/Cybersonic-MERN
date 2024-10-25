@@ -13,7 +13,7 @@ const corsOptions = {
   origin: ['https://www.cyberonicseos.com'], 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // this allows common HTTP methods
   credentials: true, // for cookies or authentication mechanisms
-  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
+  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 };
 
 app.use(cors(corsOptions));
@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGO_URI, {
   .catch((err) => console.error('MongoDB connection error:', err));
 
 // Routes
-app.use('/auth/signup', authRoutes); // Routes for auth actions
+app.use('/auth', authRoutes); // Routes for auth actions
 
 // Root route
 app.get('/', (req, res) => {

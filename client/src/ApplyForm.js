@@ -61,12 +61,10 @@ const ApplyForm = ({ course }) => {
           >
             <option value="Matric">Matric</option>
             <option value="Intermediate">FSC</option>
-            <option value="Graduation">BSc</option>
-            <option value="Masters">B.S</option>
-            <option value="M.Phil">B.S</option>
-            <option value="Ph.D">B.S</option>
-
-
+            <option value="Graduation">B.S/BSc</option>
+            <option value="Masters">Masters</option>
+            <option value="M.Phil">M.Phil</option>
+            <option value="Ph.D">Ph.D</option>
 
           </select>
         </div>
@@ -79,10 +77,17 @@ const ApplyForm = ({ course }) => {
             onChange={handleChange}
             required
           >
-            <option value="Full Stack Development">Full Stack Web Development</option>
+            <option value="Web Development(Frontend)">Web Development(Frontend)0</option>
+            <option value="Full Stack Development">Full Stack Development</option>
             <option value="Python Development">Python Development</option>
             <option value="Amazon VA">Amazon VA</option>
             <option value="Cybersecurity">Cybersecurity</option>
+            <option value="SEO & Digital Marketing">SEO & Digital Marketing</option>
+            <option value="Graphic Designing & Video Editing">Graphic Designing & Video Editing</option>
+            <option value="IELTS/Spoken English">IELTS/Spoken English</option>
+            <option value="Chinese Language">Chinese Language</option>
+            <option value="Arabic Language">Arabic Language</option>
+            
           </select>
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
