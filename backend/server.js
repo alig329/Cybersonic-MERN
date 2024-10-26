@@ -5,6 +5,7 @@ const cors = require('cors'); // cross origin resource sharing
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 dotenv.config(); // Load .env file
+const swaggerConfig = require('./swagger');
 
 const app = express();
 
@@ -30,6 +31,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/auth', authRoutes); // Routes for auth actions
+
+swaggerConfig(app);
 
 // Root route
 app.get('/', (req, res) => {
