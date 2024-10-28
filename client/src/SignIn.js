@@ -24,7 +24,7 @@ const SignIn = () => {
     e.preventDefault(); // Prevents default form submission
 
     try {
-      const response = await axios.post(`${apiUrl}/signin`, formData, {
+      const response = await axios.post(`${apiUrl}/auth/signin`, formData, {
        
         headers: {
           'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const SignIn = () => {
       if (response.status === 200) {
         console.log('User signed in successfully:', response.data);
         alert('User signed in successfully!');
-        navigate('/services'); //  '/services' navigating the user to my "services" route
+        navigate('/services'); //  '/services' navigating the user to my "services" page
       } else {
         alert(response.data.message || 'Error signing in');
         console.error('Error signing in:', response.data.message);
