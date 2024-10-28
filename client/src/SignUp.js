@@ -65,8 +65,8 @@ const SignUp = () => {
 
     console.log('Submitting form data:', formData);
     try {
-      console.log(`${apiUrl}/auth/signup`);
-      const response = await axios.post(`${apiUrl}/auth/signup`, formData, {
+      console.log(`${apiUrl}/signup`);
+      const response = await axios.post(`${apiUrl}/signup`, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
