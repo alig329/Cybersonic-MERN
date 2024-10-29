@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://www.cyberonicseos.com', // Allow your frontend domain
+  origin: ['https://www.cyberonicseos.com', 'https://vercel.com/api/toolbar/link/cybersonic-mern-po2v.vercel.app?via=project-dashboard-alias-list&p=1&page=/'], // Allow your frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add necessary methods
   credentials: true,
 }));
