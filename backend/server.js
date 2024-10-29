@@ -10,20 +10,16 @@ const swaggerConfig = require('./swagger');
 const app = express();
 
 // Middleware
-const corsOptions = {
-  origin: ['https://www.cyberonicseos.com'], 
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // this allows common HTTP methods
-  credentials: true, // for cookies or authentication mechanisms
-  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-};
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.use(cors({
+  origin: 'https://www.cyberonicseos.com', // Allow your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add necessary methods
+  credentials: true,
+}));
 
 app.use(express.json()); // To parse incoming request bodies
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect('mongodb+srv://muhali2333:wMklV29XQLFClj0K@cluster0.i3w54.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log('MongoDB connected'))
