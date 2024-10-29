@@ -19,7 +19,7 @@ app.use(cors({
 app.use(express.json()); // To parse incoming request bodies
 
 // MongoDB Connection
-mongoose.connect('mongodb+srv://muhali2333:wMklV29XQLFClj0K@cluster0.i3w54.mongodb.net/', {
+mongoose.connect('mongodb+srv://muhali2333:wMklV29XQLFClj0K@cluster0.i3w54.mongodb.net/backenddb?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log('MongoDB connected'))
