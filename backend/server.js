@@ -1,17 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors'); // cross origin resource sharing
-// const bodyParser = require('body-parser');
+const cors = require('cors'); // Cross-Origin Resource Sharing
 const dotenv = require('dotenv');
+const bcrypt = require('bcrypt'); // For password hashing
 const authRoutes = require('./routes/auth');
-dotenv.config(); // Load .env file
 const swaggerConfig = require('./swagger');
+
+dotenv.config(); // Load .env file
 
 const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://www.cyberonicseos.com', 'https://vercel.com/api/toolbar/link/cybersonic-mern-po2v.vercel.app?via=project-dashboard-alias-list&p=1&page=/'], // Allow your frontend domain
+  origin: 'https://www.cyberonicseos.com', // Allow frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add necessary methods
   credentials: true,
 }));
@@ -34,19 +35,6 @@ swaggerConfig(app);
 app.get('/', (req, res) => {
   res.send('Hello, Ali! Your server is running.');
 });
-
-app.post('/auth', (req, res) => {const{name, email, password}=req.body;
-RegisterModel.findOne({email: email})
-.then(user=> {
-  if(user){
-    res.json("Account already exits")
-  } else{
-    RegisterModel.create({name: name, email: email, password: password})
-    .then(result=> res.json(result))
-    .catch(err => res.json(err))
-  }
-}).catch(err => res.json(err))
-})
 
 const PORT = process.env.PORT || 5000; // Use PORT from .env or default to 5000
 app.listen(PORT, () => {

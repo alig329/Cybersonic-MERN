@@ -100,54 +100,51 @@ const jwt = require('jsonwebtoken');
  *         description: Some server error
  */
 
-// Signup Route
+// POST /auth/signup
 router.post('/signup', async (req, res) => {
+  const { name, email, password } = req.body;
+
   try {
-    const { name, email, password } = req.body;
-    console.log('Received data:', req.body);
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "Account already exists" });
+    }
+
+    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({
-      name,
-      email,
-      password: hashedPassword,
-    });
-    await newUser.save();
-    console.log('User successfully created:', newUser);
-    res.status(201).json({ message: 'User registered successfully!' });
-  } catch (error) {
-    console.error('Error during sign-up:', error);
-    res.status(500).json({ message: 'An error occurred, please try again.' });
+
+    // Create a new user
+    const newUser = await User.create({ name, email, password: hashedPassword });
+    
+    res.status(201).json(newUser); // Successfully created
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 });
 
-// Sign-in Route
+// POST /auth/signin
 router.post('/signin', async (req, res) => {
   const { email, password } = req.body;
+
   try {
+    // Find user by email
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: 'User not found' });
+      return res.status(400).json({ message: "User not found" });
     }
+
+    // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid credentials' });
+      return res.status(400).json({ message: "Invalid credentials" });
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ token, user });
-  } catch (error) {
-    console.error('Error during sign-in:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
 
-// Get Users Route - For testing purposes
-router.get('/signup', async (req, res) => {
-  try {
-    const users = await User.find();
-    res.status(200).json(users);
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    res.status(500).json({ message: 'An error occurred, please try again.' });
+    res.status(200).json({ message: "Signed in successfully", user });
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 });
 
