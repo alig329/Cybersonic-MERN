@@ -22,11 +22,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd backend && nodemon server.js",
-    "client": "cd client && npm start",
-    "test": "react-scripts test"
-  },
+  "start": "concurrently \"npm run server\" \"npm run client\"",
+  "server": "cd backend && nodemon server.js",
+  "client": "cd client && npm start",
+  "build": "cd client && npm run build", 
+  "test": "react-scripts test"
+},
   "eslintConfig": {
     "extends": [
       "react-app",
